@@ -1,3 +1,3 @@
 # gettingandcleaningdataCourseProject
 
-## All file are located in the folder CourseProject
+## All files are located in the folder CourseProject
