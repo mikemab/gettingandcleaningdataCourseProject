@@ -1,0 +1,45 @@
+---
+title: "Codebook"
+output: 
+     html_document:
+          keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r, include = FALSE}
+library(formatR)
+setwd("./UCI HAR Dataset")
+data <- read.table("tidy.txt", header=TRUE)
+uniqueact <- unique(data[,2])
+```
+
+Summary of data in the tidy.txt, that was created using the r_analysis.R script. This codebook is generated with R Markdown, to be easily modifiable
+
+### Subject Identifier
+This variable takes the value 1-30 representing the subject number in the experiment. 
+```{r, include=TRUE,tidy=TRUE, echo=FALSE}
+names(data[1])
+```
+
+###Activity Identifier
+This variable represents the activity of the subjects, when the measurements are taken [6 Activities]. Change from the original dataset by representing the numbers by the corresponding activity name
+```{r,include=TRUE,tidy=TRUE,echo=FALSE,comment="##"}
+names(data[2])
+```
+These represent the activity labels, that will appear in the Activity Identifier
+```{r,include=TRUE,tidy=TRUE,echo=FALSE,comment="##"}
+as.character(uniqueact)
+```
+
+Each person is notes to have performed six activities which include Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, and Laying these are represented as in the tidy data set, and in the full data set as {1-6} respectively
+
+###Measurements
+
+Finally each of the measurements in the tidy datasets represents an aggregation by mean for each activity and subject accordingly. Measurements representing Subjects 1 Walking activity are the average of all the measurements identified as subject_id = 1 and Activity: Walking
+
+```{r,include=TRUE,tidy=TRUE,echo=FALSE,comment="##"}
+as.character(names(data[,3:ncol(data)]))
+```
+

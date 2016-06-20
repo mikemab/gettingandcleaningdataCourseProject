@@ -1,0 +1,30 @@
+---
+title: "README"
+output: 
+     html_document:
+          keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Getting and Cleaning Data - Course Project README
+
+This will go through what the code r_analysis.R does
+
+1. Downloads the data from the internet into a file called UCIDataset.zip
+2. Unzips the Zip file and stores the results in the folder UCI HAR Dataset
+3. Extracts the activity labels from the activity_lables.txt
+4. Extracts the variable names from features.txt
+5. Creates a subset for all the Mean, and Standard Deviation based on the names in the dataset
+6. Cleans up the column names to be tidy based on the subset
+7. Extracts the Measurement data for both the training and test set
+8. Make a subset of the data based on the full data for measurements only including the Mean and Standard deviation measurements, renames the columns to tidy names.
+9. Extracts Activity Identifier, column gives tidy name
+10. Extract Subject Identifier, column is given tidy name
+11. Combine the Measurements with the Activity and Subject Identifier
+12. Combine the test and train datasets together
+13. Rename Activity Identifiers to be more understandable (explicit) -- tidy requirement
+14. Summarize data by average of measurement for each Subject and Activity Identifier
+15. Write the following summary to the file tidy.txt
